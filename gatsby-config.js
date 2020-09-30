@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby WordPress Starter`,
     description: `Kick off your next, great Gatsby project with this WordPress starter.`,
-    author: `@tomphill`,
+    author: `Aaron Kessler`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -31,7 +31,7 @@ module.exports = {
       resolve: "gatsby-source-wordpress",
       options: {
         minimizeDeprecationNotice: true,
-        baseUrl: "gatsby-wordpress-course.local",
+        baseUrl: "gatsbywordpress.local",
         protocol: "http",
         hostingWPCOM: false,
         useACF: false,
@@ -46,6 +46,7 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
+          "**/menus",
         ],
       },
     },
