@@ -1,10 +1,14 @@
 import React from "react"
+import Layout from "../components/Layout"
+import * as he from "he"
+import parse from "html-react-parser"
 
-export default function post({ pageContext }) {
+export default function Page({ pageContext }) {
+  //he parses html entities, parse parses HTML like dangerouslySetInnerHTML but without a sourrounding tag
   return (
-    <div>
-      <h1>{pageContext.title}</h1>
-      {console.log(pageContext)}
-    </div>
+    <Layout>
+      <h1>{he.decode(pageContext.data.title)}</h1>
+      {parse(pageContext.data.content)}
+    </Layout>
   )
 }
