@@ -121,7 +121,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: index === 0 ? "/blog/" : `/blog/${index + 1}`,
       component: slash(blogTemplate),
       context: {
-        data: posts.slice(
+        content: posts.slice(
           index * postPerPage,
           index * postPerPage + postPerPage
         ),
