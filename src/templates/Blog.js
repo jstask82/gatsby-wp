@@ -6,7 +6,7 @@ import SiteInfo from "../components/SiteInfo"
 import NavMenu from "../components/NavMenu"
 
 export default function Blog({ pageContext }) {
-  const { data, pages } = pageContext
+  const { data, pages, currentPage } = pageContext
 
   return (
     <>

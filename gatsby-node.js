@@ -126,7 +126,6 @@ exports.createPages = async ({ graphql, actions }) => {
           index * postPerPage + postPerPage
         ),
         pages,
-        currentPage: index + 1,
       },
     })
   })
