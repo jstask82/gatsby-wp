@@ -44,6 +44,8 @@ exports.createPages = async ({ graphql, actions }) => {
             format
             title
             content
+            excerpt
+            date
           }
         }
       }
@@ -83,8 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
     allWordpressWpPortfolio,
   } = result.data
 
-  // Create Page pages.
-  // create a detailed page for each page node.
+  // create pages for each page node.
   const pageTemplate = path.resolve(`./src/templates/Page.js`)
   allWordpressPage.edges.forEach(edge => {
     edge.node.path === `${indexPage}/`
@@ -100,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
         })
   })
 
-  // create a detailed page for each post node.
+  // create pages for each post node.
   const postTemplate = path.resolve(`./src/templates/Post.js`)
   allWordpressPost.edges.forEach(edge => {
     createPage({
@@ -110,7 +111,27 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  //create a detailed page for each portfolio node (custom post type).
+  //create summary pages for post nodes.
+  const blogTemplate = path.resolve(`./src/templates/Blog.js`)
+  const posts = allWordpressPost.edges
+  const postPerPage = 3
+  const pages = Math.ceil(posts.length / postPerPage)
+  Array.from({ length: pages }).forEach((edge, index) => {
+    createPage({
+      path: index === 0 ? "/blog/" : `/blog/${index + 1}`,
+      component: slash(blogTemplate),
+      context: {
+        data: posts.slice(
+          index * postPerPage,
+          index * postPerPage + postPerPage
+        ),
+        pages,
+        currentPage: index + 1,
+      },
+    })
+  })
+
+  //create pages for each portfolio node (custom post type).
   const portfolioTemplate = path.resolve(`./src/templates/Portfolio.js`)
   allWordpressWpPortfolio.edges.forEach(edge => {
     createPage({

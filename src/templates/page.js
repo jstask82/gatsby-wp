@@ -3,8 +3,9 @@ import Layout from "../components/Layout"
 import Portfolio from "../components/Portfolio"
 
 export default function Page({ pageContext }) {
+  const { data } = pageContext
   return (
-    <Layout context={pageContext.data}>
+    <Layout context={data}>
       <Portfolio />
     </Layout>
   )

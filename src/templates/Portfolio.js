@@ -2,14 +2,12 @@ import React from "react"
 import Layout from "../components/Layout"
 
 export default function Portfolio({ pageContext }) {
-  //he parses html entities, parse parses HTML like dangerouslySetInnerHTML but without a sourrounding tag
+  const { data } = pageContext
   return (
-    <Layout context={pageContext.data}>
+    <Layout context={data}>
       {
         //Render external link if set
-        pageContext.data.acf.url ? (
-          <a href={pageContext.data.acf.url}>Visit project page</a>
-        ) : null
+        data.acf.url ? <a href={data.acf.url}>Visit project page</a> : null
       }
     </Layout>
   )

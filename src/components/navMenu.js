@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
-import * as he from "he"
+import decodeHtmlEntity from "./decodeHtmlEntity"
 
 export default function NavMenu() {
   const data = useStaticQuery(graphql`
@@ -23,7 +23,9 @@ export default function NavMenu() {
       <ul>
         {data.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(item => (
           <li key={item.object_id}>
-            <Link to={`/${item.object_slug}`}>{he.decode(item.title)}</Link>
+            <Link to={`/${item.object_slug}`}>
+              {decodeHtmlEntity(item.title)}
+            </Link>
           </li>
         ))}
       </ul>

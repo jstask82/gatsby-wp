@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery, Link } from "gatsby"
-import parse from "html-react-parser"
-import * as he from "he"
 import React from "react"
+import decodeHtmlEntity from "./decodeHtmlEntity"
+import parseHtml from "./parseHtml"
 
 export default function Portfolio() {
   const data = useStaticQuery(graphql`
@@ -28,16 +28,18 @@ export default function Portfolio() {
     <ul>
       {data.allWordpressWpPortfolio.edges.map(edge => (
         <li key={edge.node.id}>
-          <h3>{he.decode(edge.node.title)}</h3>
+          <h3>{decodeHtmlEntity(edge.node.title)}</h3>
           <figure>
             <img
               title={edge.node.featured_media.title}
               alt={edge.node.featured_media.alt_text}
               src={edge.node.featured_media.source_url}
             />
-            <figcaption>{parse(edge.node.featured_media.caption)}</figcaption>
+            <figcaption>
+              {parseHtml(edge.node.featured_media.caption)}
+            </figcaption>
           </figure>
-          {parse(edge.node.excerpt)}
+          {parseHtml(edge.node.excerpt)}
           <Link to={`/portfolio/${edge.node.slug}/`}>read more...</Link>
         </li>
       ))}
