@@ -4,12 +4,12 @@ const Fs = require("fs")
 const Path = require("path")
 const Axios = require("axios")
 
-const url = "http://gatsbywordpress.local/wp-json/wp/v2/favicon"
-const dirName = "src/images"
+const imageObjectUrl = "http://gatsbywordpress.local/wp-json/wp/v2/favicon"
+const targetDir = "src/images"
 
-async function getFavIcon(restApiUrl) {
+async function getFavIcon(apiUrl, dirName) {
   try {
-    const response = await Axios.get(restApiUrl)
+    const response = await Axios.get(apiUrl)
     const imageUrl = response.data.url
     const fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1)
     downloadImage(imageUrl, dirName, fileName)
@@ -35,4 +35,4 @@ async function downloadImage(url, dir, file) {
     writer.on("error", reject)
   })
 }
-getFavIcon(url)
+getFavIcon(imageObjectUrl, targetDir)
