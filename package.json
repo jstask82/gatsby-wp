@@ -34,7 +34,7 @@
   "scripts": {
     "get:favicon": "node get-favicon.js",
     "build": "npm-run-all get:favicon gatsby build",
-    "develop:playground": "env-cmd -f .env gatsby develop",
+    "develop:playground": "env-cmd -f .env.development gatsby develop",
     "develop": "npm-run-all get:favicon develop:playground",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
