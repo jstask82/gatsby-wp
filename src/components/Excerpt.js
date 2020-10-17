@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import formatDate from "./formatDate"
+import FormatDateTime from "./FormatDateTime"
 import decodeHtmlEntity from "./decodeHtmlEntity"
 import parseHtml from "./parseHtml"
 
@@ -13,7 +13,9 @@ export default function Excerpt({ context }) {
       <p>
         <Link to={`/post${path}`}>read more...</Link>
       </p>
-      <p>{`Veröffentlicht am ${formatDate(date)}`}</p>
+      <p>
+        Veröffentlicht am <FormatDateTime date={date} />
+      </p>
     </>
   )
 }
