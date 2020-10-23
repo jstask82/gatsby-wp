@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby WordPress Starter`,
-    description: `Kick off your next, great Gatsby project with this WordPress starter.`,
+    title: `Gatsby WordPress Base-Theme`,
+    description: `Gatsby Theme for a headless Wodpress, powered by Redux and Scss`,
     author: `Aaron Kessler`,
   },
   plugins: [
@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/img`,
       },
     },
     {
@@ -22,10 +22,10 @@ module.exports = {
         name: `Gatsby Headless Wordpress`,
         short_name: `gatsby_headless_wp`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#fff`,
+        background_color: `#0a0a32`,
+        theme_color: `#0a0a32`,
         display: `minimal-ui`,
-        icon: "src/images/cropped-favicon.png",
+        icon: "src/assets/img/cropped-favicon.png",
       },
     },
     {

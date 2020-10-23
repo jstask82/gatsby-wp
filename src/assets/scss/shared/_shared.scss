@@ -1,0 +1,145 @@
+.wrapper {
+  max-width: $wrapper-width;
+  margin: 0 auto;
+  font-size: $fs-normal;
+  display: flex;
+  padding: $wrapper-padding;
+  flex-direction: column;
+  align-items: flex-start;
+  @include desktop-menu {
+    padding: calc(#{$wrapper-padding} * 2);
+  }
+}
+
+.content {
+  background-color: rgba($clr-white, 1);
+  flex: 1 0 auto;
+}
+
+.col2 {
+  @include for-tablet-portrait-up {
+    columns: auto 2;
+    column-gap: $colgap;
+  }
+}
+.col1 {
+  @include for-tablet-portrait-up {
+    columns: auto 1;
+    column-gap: $colgap;
+  }
+}
+
+.border-bottom {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid $clr-primary;
+  align-self: stretch;
+}
+.border-top {
+  padding-top: 2em;
+  margin-top: 2em;
+  border-top: 1px solid $clr-primary;
+  align-self: stretch;
+}
+.borderless-bottom {
+  padding-bottom: 2em;
+  margin-bottom: 2em;
+}
+.borderless-bottom--small {
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+.borderless-top {
+  padding-top: 2em;
+  margin-top: 2em;
+}
+.image-text {
+  &__left {
+    border-radius: 0.4rem;
+    margin-bottom: 0.5em;
+
+    @include for-tablet-portrait-up {
+      float: left;
+      width: 45%;
+      max-width: 35rem;
+      margin-right: 2.5rem;
+    }
+    @media (min-width: 1206px) {
+      width: 21.822%;
+      max-width: 25.75rem;
+    }
+  }
+  &__right {
+    border-radius: 0.4rem;
+    margin-bottom: 0.5em;
+
+    @include for-tablet-portrait-up {
+      float: right;
+      width: 45%;
+      max-width: 35rem;
+      margin-left: 2.5rem;
+    }
+    @media (min-width: 1206px) {
+      width: 21.822%;
+      max-width: 25.75rem;
+    }
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cta-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  @media (min-width: 1065px) {
+    flex-direction: row;
+  }
+}
+.cta {
+  background-color: $clr-black;
+  color: $clr-white;
+  padding: 0em 1em 0.35em 0.75em;
+  line-height: 2;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  position: relative;
+  transition: background-color 0.25s, transform 0.25s;
+  text-decoration: none !important;
+  display: inline-block;
+  width: 100%;
+  min-width: 31rem;
+
+  @include for-tablet-portrait-up {
+    width: 30%;
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
+    @media (min-width: 1065px) {
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+  }
+
+  &:hover {
+    background-color: $clr-primary;
+  }
+
+  &:active {
+    transform: translateY(0.3rem);
+  }
+
+  &:focus {
+    outline: $clr-primary solid 0.2rem;
+    outline-offset: 0.3rem;
+  }
+  & svg {
+    position: relative;
+    top: 0.5em;
+    margin-right: 0.5em;
+  }
+}

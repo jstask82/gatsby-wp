@@ -1,0 +1,55 @@
+//DESKTOP MENU BREAKPOINT
+
+$desktop-menu-bp: 637px;
+
+// COLORS
+$clr-primary: hsl(14, 98%, 50%);
+$clr-primary--light: hsl(14, 98%, 60%);
+$clr-white: #fff;
+$clr-grey: #e5e5e5;
+$clr-grey--dark: #a0a0a0;
+$clr-black: #0a0a32;
+
+// FONT, SIZES
+$ff-primary: 'Source Sans Pro';
+$ff-secondary: 'Raleway';
+$fw-light: 300;
+$fw-regular-only-primary: 400;
+$fw-semibold-only-primary-italic: 600;
+$fw-bold: 700;
+$fw-xbold-only-secondary: 800;
+$fs-default: 10px; //or 62.5% if Safari does not matter. See https://adamwathan.me/dont-use-em-for-media-queries/
+$fs-xl: 6.1rem;
+$fs-l: 2.7rem;
+$fs-normal: 1.8rem;
+$fs-nav: 1.9rem;
+$fs-nav-big: 3.8rem;
+$fs-s: 1.4rem;
+
+//COLUMNS
+$colgap: 5rem;
+
+// WRAPPER
+$wrapper-padding: calc(#{$colgap} / 2);
+$wrapper-width: 128rem;
+
+$vars: (
+  clr-primary: $clr-primary,
+  clr-primary--light: $clr-primary--light,
+  clr-white: $clr-white,
+  clr-grey: $clr-grey,
+  clr-grey--dark: $clr-grey--dark,
+  clr-black: $clr-black,
+  ff-primary: $ff-primary,
+  ff-secondary: $ff-secondary,
+  fw-light: $fw-light,
+  fw-regular-only-primary: $fw-regular-only-primary,
+  fw-bold: $fw-bold,
+  fw-xbold-only-secondary: $fw-xbold-only-secondary,
+  fs-default: $fs-default,
+  fs-xl: $fs-xl,
+  fs-l: $fs-l,
+  fs-normal: $fs-normal,
+  fs-s: $fs-s,
+  wrapper-padding: $wrapper-padding,
+);

@@ -1,0 +1,262 @@
+//Base styles only, no classes!
+
+@import "./main.scss";
+
+/* source-sans-pro-600italic - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: italic;
+  font-weight: 600;
+  src: local("Source Sans Pro SemiBold Italic"),
+    local("SourceSansPro-SemiBoldItalic"),
+    url("../fonts/source-sans-pro-v13-latin-600italic.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/source-sans-pro-v13-latin-600italic.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* source-sans-pro-300 - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Source Sans Pro Light"), local("SourceSansPro-Light"),
+    url("../fonts/source-sans-pro-v13-latin-300.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/source-sans-pro-v13-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* source-sans-pro-regular - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro Regular"), local("SourceSansPro-Regular"),
+    url("../fonts/source-sans-pro-v13-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/source-sans-pro-v13-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"),
+    url("../fonts/source-sans-pro-v13-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/source-sans-pro-v13-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* raleway-300 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Raleway Light"), local("Raleway-Light"),
+    url("../fonts/raleway-v14-latin-300.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/raleway-v14-latin-300.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* raleway-700 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Raleway Bold"), local("Raleway-Bold"),
+    url("../fonts/raleway-v14-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/raleway-v14-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* raleway-800 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 800;
+  src: local("Raleway ExtraBold"), local("Raleway-ExtraBold"),
+    url("../fonts/raleway-v14-latin-800.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/raleway-v14-latin-800.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  @each $prop, $val in $vars {
+    --#{$prop}: #{$val};
+  }
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: $fs-default; // 1rem = 10px; 10px/16px = 62.5%;
+  -webkit-text-size-adjust: 100%;
+  @media (max-width: 370px) {
+    font-size: 8px;
+  }
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  background-color: $clr-black;
+  font-family: $ff-primary;
+  font-size: $fs-normal;
+  line-height: 1.5;
+  color: $clr-black;
+}
+
+img {
+  //flexi-img
+  max-width: 100%;
+}
+
+::selection {
+  background-color: rgba($clr-primary, 0.5);
+  @include var(color, clr-white);
+}
+
+h1 {
+  font-family: $ff-secondary;
+  font-size: 5rem;
+  font-weight: $fw-xbold-only-secondary;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  overflow-wrap: anywhere;
+  color: $clr-black;
+
+  @include for-tablet-portrait-up {
+    font-size: $fs-xl;
+  }
+}
+
+h2 {
+  font-family: $ff-secondary;
+  font-size: $fs-l;
+  font-weight: $fw-light;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+}
+
+h3 {
+  font-family: $ff-secondary;
+  font-size: $fs-normal;
+  font-weight: $fw-bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+  letter-spacing: 0.075em;
+}
+
+h4 {
+  font-family: $ff-secondary;
+  font-size: $fs-normal;
+  font-weight: $fw-light;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+  letter-spacing: 0.075em;
+}
+h5 {
+  font-family: $ff-secondary;
+  font-size: $fs-s;
+  font-weight: $fw-light;
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+  letter-spacing: 0.075em;
+}
+h6 {
+  font-family: $ff-secondary;
+  font-size: $fs-s;
+  font-weight: $fw-light;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+}
+
+p {
+  font-family: $ff-primary;
+  font-size: $fs-normal;
+  line-height: 1.75;
+  margin-bottom: 1em;
+  color: $clr-black;
+}
+
+ol {
+  font-family: $ff-primary;
+  margin-left: 1.5rem;
+  line-height: 1.75;
+  margin-bottom: 1em;
+  color: $clr-black;
+
+  & li {
+    counter-increment: list;
+    list-style-type: none;
+    &::before {
+      color: $clr-primary--light;
+      content: counter(list) ".";
+      display: inline-block;
+      margin-right: 0.75em;
+      font-weight: $fw-bold;
+      font-size: 0.95em;
+    }
+  }
+}
+ul {
+  font-family: $ff-primary;
+  margin-left: 3.5rem;
+  line-height: 1.75;
+  margin-bottom: 1em;
+  color: $clr-black;
+
+  list-style-image: url("data:image/svg+xml,%3Csvg width='11' height='11' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2'%3E%3Cpath fill='hsl(14, 98%, 60%)' d='M0 0h10v10H0z'/%3E%3C/svg%3E");
+  & li {
+    padding-left: 0.25em;
+  }
+}
+
+mark {
+  background-color: $clr-primary--light;
+  padding: 0.1em 0.25em;
+  color: $clr-black;
+}
+pre {
+  width: 100%;
+  max-width: 90rem;
+  background-color: $clr-grey;
+  white-space: normal;
+  overflow-wrap: break-word;
+  padding: 1em;
+  font-size: $fs-normal;
+  color: $clr-black;
+  display: inline-block;
+}
+
+a {
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: $clr-black;
+  color: $clr-primary--light;
+
+  &:hover {
+    text-decoration-style: wavy;
+  }
+  &:active {
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-color: $clr-black;
+  }
+
+  &:focus {
+    outline: $clr-primary dotted 0.2rem;
+    outline-offset: 0.1rem;
+  }
+}

@@ -5,7 +5,7 @@ const Path = require("path")
 const Axios = require("axios")
 
 const imageObjectUrl = "http://gatsbywordpress.local/wp-json/wp/v2/favicon"
-const targetDir = "src/images"
+const targetDir = "src/assets/img"
 
 async function getFavIcon(apiUrl, dirName) {
   try {

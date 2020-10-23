@@ -1,0 +1,54 @@
+//CSS VARIABLES
+@mixin var($property, $variable) {
+  #{$property}: map-get($vars, $variable);
+  #{$property}: var(--#{$variable});
+}
+/* usage
+@include var(color, clr-black);
+
+output:
+color: black;
+color: var(--clr-black);
+ */
+
+//RESPONSIVE BREAKPOINTS
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin desktop-menu {
+  @media (min-width: $desktop-menu-bp) {
+    @content;
+  }
+}
+
+/*  usage:
+    .my-box {
+      padding: 10px;
+      
+      @include for-desktop-up {
+        padding: 20px;
+      }
+    } */
