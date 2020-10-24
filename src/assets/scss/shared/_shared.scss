@@ -1,3 +1,17 @@
+/*
+Prevent scrolling in hamburger menu:
+Apply .stop-scroll to body
+*/
+.stop-scroll {
+  height: 100%;
+  overflow: hidden;
+
+  @include for-tablet-portrait-up {
+    height: auto;
+    overflow: visible;
+  }
+}
+
 .wrapper {
   max-width: $wrapper-width;
   margin: 0 auto;

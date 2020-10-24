@@ -4,7 +4,7 @@ import NavMenu from "./NavMenu"
 import SiteInfo from "./SiteInfo"
 import Content from "./Content"
 import SEO from "./seo"
-import "../assets/scss/index.module.scss"
+import "./Layout.scss"
 
 export default function Layout({ context, children }) {
   return (
