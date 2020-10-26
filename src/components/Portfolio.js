@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery, Link } from "gatsby"
 import React from "react"
-import decodeHtmlEntity from "./decodeHtmlEntity"
-import parseHtml from "./parseHtml"
+import decodeHtmlEntity from "./common/decodeHtmlEntity"
+import parseHtml from "./common/parseHtml"
 
 export default function Portfolio() {
   const data = useStaticQuery(graphql`

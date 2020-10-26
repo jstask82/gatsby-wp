@@ -1,6 +1,6 @@
 import React from "react"
-import decodeHtmlEntity from "../decodeHtmlEntity"
-import parseHtml from "../parseHtml"
+import decodeHtmlEntity from "../common/decodeHtmlEntity"
+import parseHtml from "../common/parseHtml"
 
 export default function Content({ context }) {
   const { title, content } = context

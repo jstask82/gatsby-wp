@@ -1,7 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
+import Logo from "./Logo"
 import NavMenu from "../Header/NavMenu"
 import css from "./Header.module.scss"
+import ScrollIndicator from "./ScrollIndicator"
 
 function Header({ padding }) {
   const paddingStyle = {
@@ -15,8 +17,10 @@ function Header({ padding }) {
         className={`${css.wrapper} ${css["wrapper--header"]}`}
         style={paddingStyle}
       >
+        <Logo />
         <NavMenu />
       </div>
+      <ScrollIndicator />
     </header>
   )
 }

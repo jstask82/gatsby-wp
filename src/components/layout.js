@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { changeHeaderSize } from "../redux"
+import { changeHeaderSize, updateScrollIndicator } from "../redux"
 import SEO from "./seo"
 import Header from "./Header"
 import Main from "./Main"
 import "./Layout.scss"
 
-function Layout({ children, changeHeaderSize }) {
+function Layout({ children, changeHeaderSize, updateScrollIndicator }) {
   useEffect(() => {
     window.onscroll = () => {
       //Header size
@@ -23,11 +23,15 @@ function Layout({ children, changeHeaderSize }) {
         changeHeaderSize("1")
       }
 
-      // //ScrollIndicator
-      // const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      // const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      // const scrolled = (winScroll / height) * 100;
-      // setIndicatorWidth(scrolled);
+      //ScrollIndicator
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight
+      const scrolled = (winScroll / height) * 100
+      console.log(scrolled)
+      updateScrollIndicator(scrolled)
 
       // //Back To Top Visibility
       // if (document.body.scrollTop > scrollPos || document.documentElement.scrollTop > scrollPos) {
@@ -37,7 +41,7 @@ function Layout({ children, changeHeaderSize }) {
       //   setBackToTopBtnVisible(false);
       // }
     }
-  }, [changeHeaderSize])
+  }, [changeHeaderSize, updateScrollIndicator])
   return (
     <React.Fragment>
       <SEO title="default title" />
@@ -51,6 +55,7 @@ function Layout({ children, changeHeaderSize }) {
 const mapDispatchToProps = dispatch => {
   return {
     changeHeaderSize: paddingValue => dispatch(changeHeaderSize(paddingValue)),
+    updateScrollIndicator: size => dispatch(updateScrollIndicator(size)),
   }
 }
 export default connect(null, mapDispatchToProps)(Layout)

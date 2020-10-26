@@ -1,6 +1,7 @@
 import { CHANGE_HEADER_SIZE } from "./headerTypes"
 const initialState = {
   padding: "1",
+  small: false,
 }
 const headerReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,8 +9,8 @@ const headerReducer = (state = initialState, action) => {
       return {
         ...state,
         padding: action.payload,
+        small: action.payload === "0" ? true : false,
       }
-
     default:
       return state
   }

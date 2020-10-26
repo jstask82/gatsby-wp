@@ -1,45 +1,44 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
-import React, { useRef } from "react"
-import { animateScroll as scroll } from "react-scroll"
-import "./Logo.module.scss"
+import React from "react"
+import { connect } from "react-redux"
+import styled from "styled-components"
+import css from "./Logo.module.scss"
 
-export default function Logo() {
-  const ref = useRef()
-  const handleKeypress = e => {
-    //triggers by pressing 'enter' key
-    if (e.key === "Enter") {
-      ref.current.click()
-    }
+const StyledLogo = styled.div`
+  &::after {
+    content: "${props => props.after}";
   }
-  function logoClick() {
-    scroll.scrollToTop()
-  }
-  const logo = useStaticQuery(graphql`
+`
+
+function Logo({ small }) {
+  const name = useStaticQuery(graphql`
     query {
-      allWordpressWpLogo {
-        nodes {
-          url {
-            source_url
-            title
-            alt_text
+      allWordpressSiteMetadata {
+        edges {
+          node {
+            name
           }
         }
       }
     }
   `)
 
-  const { source_url, title, alt_text } = logo.allWordpressWpLogo.nodes[0].url
+  const siteName = name.allWordpressSiteMetadata.edges[0].node.name
+
   return (
-    <div
-      className={logoClass}
-      ref={ref}
-      onKeyPress={handleKeypress}
-      onClick={logoClick}
-      title="nach oben"
+    <StyledLogo
+      className={small ? css["logo-small"] : css.logo}
+      after={siteName}
     >
-      <Link to="/">
-        <img src={source_url} title={title} alt={alt_text}></img>
-      </Link>
-    </div>
+      <Link to="/">{siteName}</Link>
+    </StyledLogo>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    small: state.header.small,
+  }
+}
+
+export default connect(mapStateToProps)(Logo)

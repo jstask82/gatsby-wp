@@ -2,10 +2,10 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import React, { useRef } from "react"
 import { connect } from "react-redux"
 import { toggleNavMenu } from "../../redux"
-import decodeHtmlEntity from "../decodeHtmlEntity"
-import css from "./Nav.module.scss"
+import decodeHtmlEntity from "../common/decodeHtmlEntity"
+import css from "./NavMenu.module.scss"
 
-function NavMenu({ toggleNavMenu, menuVisible }) {
+function NavMenu({ toggleNavMenu, menuVisible, small }) {
   const ref = useRef()
   const data = useStaticQuery(graphql`
     query {
@@ -38,6 +38,7 @@ function NavMenu({ toggleNavMenu, menuVisible }) {
       ref.current.click()
     }
   }
+
   return (
     <React.Fragment>
       <div
@@ -61,9 +62,13 @@ function NavMenu({ toggleNavMenu, menuVisible }) {
       </div>
       <nav
         className={
-          menuVisible
-            ? css.navigation + " " + css["navigation--visible"]
-            : css.navigation
+          menuVisible && small
+            ? `${css["navigation-small"]} ${css["navigation--visible"]}`
+            : menuVisible && !small
+            ? `${css.navigation} ${css["navigation--visible"]}`
+            : small
+            ? `${css["navigation-small"]}`
+            : `${css.navigation}`
         }
       >
         <ul className={css.navigation__list}>
@@ -88,6 +93,7 @@ function NavMenu({ toggleNavMenu, menuVisible }) {
 const mapStateToProps = state => {
   return {
     menuVisible: state.navMenu.menuVisible,
+    small: state.header.small,
   }
 }
 

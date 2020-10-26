@@ -20,9 +20,7 @@
   @include desktop-menu {
     z-index: 999;
   }
-
   &::after {
-    content: "Aaron Kessler";
     position: absolute;
     top: 0;
     left: 50%;
@@ -39,7 +37,10 @@
     transform: translate(-50%, 40%) rotate(0deg);
   }
 
-  & div {
+  & a {
+    color: $clr-white;
+    text-decoration: none;
+
     &:focus {
       outline: $clr-primary dashed 2px;
       outline-offset: 0.3em;
@@ -70,7 +71,6 @@
   }
 
   &::after {
-    content: "Aaron Kessler";
     position: absolute;
     top: -0.4rem;
     left: 50%;
@@ -87,7 +87,9 @@
     transform: translate(-50%, 40%) rotate(0deg);
   }
 
-  & div {
+  & a {
+    color: $clr-white;
+    text-decoration: none;
     &:focus {
       outline: $clr-primary dashed 2px;
       outline-offset: 0.3em;
