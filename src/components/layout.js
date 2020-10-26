@@ -43,9 +43,6 @@ function Layout({ children, changeHeaderSize }) {
       <SEO title="default title" />
       <Header />
       <Main childs={children} />
-      <button onClick={() => changeHeaderSize("4")}>
-        change headerpadding to 4
-      </button>
       {/*Footer*/}
     </React.Fragment>
   )

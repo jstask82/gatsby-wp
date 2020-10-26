@@ -1,5 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
+import NavMenu from "../Header/NavMenu"
 import css from "./Header.module.scss"
 
 function Header({ padding }) {
@@ -13,7 +14,9 @@ function Header({ padding }) {
       <div
         className={`${css.wrapper} ${css["wrapper--header"]}`}
         style={paddingStyle}
-      ></div>
+      >
+        <NavMenu />
+      </div>
     </header>
   )
 }
