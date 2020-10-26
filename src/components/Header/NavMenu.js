@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
-import decodeHtmlEntity from "./decodeHtmlEntity"
+import decodeHtmlEntity from "../decodeHtmlEntity"
 
 export default function NavMenu() {
   const data = useStaticQuery(graphql`

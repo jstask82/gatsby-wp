@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import FormatDateTime from "./FormatDateTime"
-import decodeHtmlEntity from "./decodeHtmlEntity"
-import parseHtml from "./parseHtml"
+import FormatDateTime from "../FormatDateTime"
+import decodeHtmlEntity from "../decodeHtmlEntity"
+import parseHtml from "../parseHtml"
 
 export default function Excerpt({ context }) {
   const { title, excerpt, date, path } = context

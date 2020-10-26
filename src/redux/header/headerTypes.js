@@ -1,0 +1,1 @@
+export const CHANGE_HEADER_SIZE = "CHANGE_HEADER_SIZE"

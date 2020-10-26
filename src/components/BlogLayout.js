@@ -1,5 +1,5 @@
 import React from "react"
-import Excerpt from "./Excerpt"
+import Excerpt from "./Main/Excerpt"
 
 export default function BlogLayout({ context, children }) {
   return (
