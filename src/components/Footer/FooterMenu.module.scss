@@ -1,0 +1,42 @@
+@import "../../assets/scss/main.scss";
+
+.footer {
+  &__navigation {
+    margin-left: 0;
+  }
+
+  &__navigation-item {
+    list-style-image: none;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1.5em;
+    font-family: $ff-primary;
+    font-weight: $fw-light;
+    font-size: $fs-nav;
+    color: $clr-white;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.1) translate(0.5rem, 0.1rem);
+      color: $clr-primary--light;
+    }
+    &:active {
+      transform: scale(1.1) translate(0.5rem, 0.4rem);
+    }
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.3s;
+      &:hover {
+        color: $clr-primary--light;
+        transform: scale(1.1) translate(0.5rem, 0.1rem);
+      }
+
+      &:focus {
+        outline: none;
+        text-decoration: underline;
+        text-decoration-color: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../assets/scss/main.scss";
+
+.wrapper--footer {
+  padding-top: 3em;
+  padding-bottom: 5.5em;
+}
+.footer {
+  background-color: rgba($clr-black, 0.9);
+  backdrop-filter: blur(4px);
+  color: $clr-white;
+  flex-shrink: 0;
+
+  &__copyright {
+    font-size: $fs-s;
+    color: $clr-white;
+    margin-bottom: 0;
+  }
+}

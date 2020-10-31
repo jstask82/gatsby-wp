@@ -14,10 +14,11 @@ export default function SiteInfo() {
       }
     }
   `)
+  const { name, description } = data.allWordpressSiteMetadata.edges[0].node
   return (
     <ul>
-      <li>{data.allWordpressSiteMetadata.edges[0].node.name}</li>
-      <li>{data.allWordpressSiteMetadata.edges[0].node.description}</li>
+      <li>{name}</li>
+      <li>{description}</li>
     </ul>
   )
 }

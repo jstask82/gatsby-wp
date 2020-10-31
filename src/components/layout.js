@@ -3,8 +3,9 @@ import { connect } from "react-redux"
 import { changeHeaderSize, updateScrollIndicator } from "../redux"
 import SEO from "./seo"
 import Header from "./Header"
-import Main from "./Main"
-import "./Layout.scss"
+import "./global.scss"
+import css from "./Layout.module.scss"
+import Footer from "./Footer/Footer"
 
 function Layout({ children, changeHeaderSize, updateScrollIndicator }) {
   useEffect(() => {
@@ -46,8 +47,12 @@ function Layout({ children, changeHeaderSize, updateScrollIndicator }) {
     <React.Fragment>
       <SEO title="default title" />
       <Header />
-      <Main childs={children} />
-      {/*Footer*/}
+      <main className={css.main}>
+        <section className={css.content}>
+          <div className={css.wrapper}>{children}</div>
+        </section>
+      </main>
+      <Footer />
     </React.Fragment>
   )
 }
