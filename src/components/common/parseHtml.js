@@ -1,6 +1,6 @@
 import React from "react"
 import parse from "html-react-parser"
-import { Link } from "gatsby"
+import Link from "./Link"
 
 export default function parseHtml(html) {
   const parsedHtml = parse(html, {
