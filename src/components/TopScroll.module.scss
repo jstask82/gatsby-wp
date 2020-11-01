@@ -1,0 +1,49 @@
+@import "../assets/scss/main.scss";
+
+.wrapper--back-to-top {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.back-to-top__btn {
+  position: fixed;
+  color: white;
+  background-color: $clr-black;
+  z-index: 600;
+  cursor: pointer;
+  bottom: 0;
+  background-color: $clr-primary;
+  border-top-right-radius: 0.25em;
+  border-top-left-radius: 0.25em;
+  border: 0.1rem solid $clr-white;
+  border-bottom-color: $clr-primary;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  &:focus {
+    outline: none;
+    > span {
+      outline: $clr-primary dashed 2px;
+      outline-offset: 0.75em;
+    }
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    height: min-content;
+    transform: scaleY(1);
+  }
+
+  & :hover {
+    transform: scaleY(1.1);
+  }
+
+  > span {
+    outline: none;
+    padding: 0.5em;
+    display: block;
+  }
+}
