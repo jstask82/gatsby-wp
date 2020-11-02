@@ -63,8 +63,8 @@ module.exports = {
         verboseOutput: false,
         perPage: 100,
         // searchAndReplaceContentUrls: {
-        //   sourceUrl: "https://source-url.com",
-        //   replacementUrl: "https://replacement-url.com",
+        //   sourceUrl: process.env.API_URL,
+        //   replacementUrl: process.env.BASE_URL,
         // },
         concurrentRequests: 10,
         includedRoutes: [

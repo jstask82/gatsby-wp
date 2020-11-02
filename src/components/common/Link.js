@@ -5,17 +5,34 @@ import { Link as GatsbyLink } from "gatsby"
 // and partiallyActive, destructure the prop here and
 // pass it only to GatsbyLink
 const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
-  // Tailor the following test to your environment.
-  // This example assumes that any internal link (intended for Gatsby)
-  // will start with exactly one slash, and that anything else is external.
-  // TODO Check for baseUrl also
-  const internal = /^\/(?!\/)/.test(to)
+  // The expressions assume that any internal link (intended for Gatsby)
+  // will start with exactly one slash, or starts with http[s]://[www.]baseurl/
+  const startsWithBaseUrl = new RegExp(
+    `^https?:/{2}(w{3}.|w{0})(${process.env.API_URL})/.*`
+  )
+  const startsWithSlash = /^\/(?!\/)/
+  const internal = startsWithBaseUrl.test(to)
+  const relative = startsWithSlash.test(to)
 
-  // Use Gatsby Link for internal links, and <a> for others
-  if (internal) {
+  // Use Gatsby Link for internal and relative links, and <a> for others
+  if (relative) {
     return (
       <GatsbyLink
-        to={to}
+        to={`${to}/`}
+        activeClassName={activeClassName}
+        partiallyActive={partiallyActive}
+        {...other}
+      >
+        {children}
+      </GatsbyLink>
+    )
+  }
+
+  if (internal) {
+    const slug = `/${to.split("/").slice(3).join("/")}`
+    return (
+      <GatsbyLink
+        to={slug}
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}
         {...other}

@@ -10,7 +10,6 @@ import Header from "./Header"
 import "./global.scss"
 import css from "./Layout.module.scss"
 import Footer from "./Footer/Footer"
-import TopScrollPos from "./TopScrollPos"
 import TopScroll from "./TopScroll"
 
 function Layout({
@@ -59,7 +58,6 @@ function Layout({
   return (
     <React.Fragment>
       <SEO title="default title" />
-      <TopScrollPos />
       <Header />
       <main className={css.main}>
         <section className={css.content}>

@@ -1,9 +1,10 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import React, { useRef } from "react"
 import { connect } from "react-redux"
 import { toggleNavMenu } from "../../redux"
 import decodeHtmlEntity from "../common/decodeHtmlEntity"
 import css from "./NavMenu.module.scss"
+import Link from "../common/Link"
 
 function NavMenu({ toggleNavMenu, menuVisible, small }) {
   const ref = useRef()
@@ -14,7 +15,7 @@ function NavMenu({ toggleNavMenu, menuVisible, small }) {
           node {
             items {
               title
-              object_slug
+              url
               object_id
             }
           }
@@ -77,7 +78,7 @@ function NavMenu({ toggleNavMenu, menuVisible, small }) {
               <li className={css["navigation__list-item"]} key={item.object_id}>
                 <Link
                   className={css["navigation__list-link"]}
-                  to={`/${item.object_slug}`}
+                  to={`${item.url}`}
                 >
                   {decodeHtmlEntity(item.title)}
                 </Link>
