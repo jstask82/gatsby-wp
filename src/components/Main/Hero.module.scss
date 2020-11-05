@@ -1,0 +1,83 @@
+@import "../../assets/scss/main.scss";
+.likeh2 {
+  font-family: $ff-secondary;
+  font-size: $fs-l;
+  font-weight: $fw-light;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  color: $clr-black;
+}
+
+.background-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    background-size: cover;
+    background-color: $clr-grey;
+    //background-attachment: fixed;
+    //background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1920 1080' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2'%3E%3Cpath fill='%23fc3d03' d='M0 0h1920v1080H0z'/%3E%3Cellipse cx='1712' cy='731' rx='902' ry='753' fill='url(%23_Linear1)'/%3E%3Cellipse cx='-241' cy='539.5' rx='787' ry='690.5' fill='url(%23_Linear2)'/%3E%3Cdefs%3E%3ClinearGradient id='_Linear1' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(850 0 0 850 810 641)'%3E%3Cstop offset='0' stop-color='%23fd6435'/%3E%3Cstop offset='1' stop-color='%23fd6435' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='_Linear2' x1='0' y1='0' x2='1' y2='0' gradientUnits='userSpaceOnUse' gradientTransform='matrix(-794 0 0 -794 546 568)'%3E%3Cstop offset='0' stop-color='%23fd6435'/%3E%3Cstop offset='1' stop-color='%23fd6435' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+  }
+}
+
+.hero {
+  &__heading {
+    color: $clr-white;
+    padding-left: 2rem;
+    text-shadow: 0 0 0.3em rgba($clr-black, 0.5);
+    max-width: 20em;
+  }
+
+  &__text {
+    color: $clr-white;
+    background-color: rgba($clr-black, 0.75);
+    backdrop-filter: blur(4px);
+    padding: 3rem 2rem;
+    max-width: 90rem;
+    display: inline-block;
+  }
+}
+
+.breadcrumb {
+  font-size: $fs-s;
+  background-color: $clr-white;
+  padding: 1em;
+  margin-left: 1.5em;
+  transform: translateY(1.5em);
+  width: max-content;
+  z-index: 100;
+
+  & a {
+    font-family: $ff-primary;
+    font-weight: $fw-semibold-only-primary-italic;
+    font-style: italic;
+    color: $clr-black;
+    text-decoration: none;
+    transition: border 0.25s, color 0.25;
+    border-bottom: 0.2rem solid transparent;
+
+    &:hover {
+      border-bottom: 0.2rem solid $clr-primary--light;
+    }
+
+    &:focus {
+      outline: $clr-primary dotted 0.2rem;
+      outline-offset: 0.1rem;
+    }
+
+    &:active {
+      color: $clr-primary;
+    }
+  }
+}

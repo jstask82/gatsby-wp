@@ -11,6 +11,7 @@ import "./global.scss"
 import css from "./Layout.module.scss"
 import Footer from "./Footer/Footer"
 import TopScroll from "./TopScroll"
+import Hero from "./Main/Hero"
 
 function Layout({
   children,
@@ -60,6 +61,7 @@ function Layout({
       <SEO title="default title" />
       <Header />
       <main className={css.main}>
+        <Hero />
         <section className={css.content}>
           <div className={css.wrapper}>{children}</div>
         </section>
