@@ -35,8 +35,8 @@ export default function Hero({
         relativePath: { eq: "luca-bravo-XJXWbfSo2f0-unsplash.jpg" }
       ) {
         childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
+          fluid(maxWidth: 1920, srcSetBreakpoints: [370, 640, 1065, 1200]) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
