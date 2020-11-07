@@ -19,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
     redirectInBrowser: true,
     isPermanent: true,
   })
-
+  // TODO Query Content in templates based on node id
   const result = await graphql(`
     {
       allWordpressPage {
@@ -31,6 +31,24 @@ exports.createPages = async ({ graphql, actions }) => {
             template
             title
             content
+            featured_media {
+              localFile {
+                childImageSharp {
+                  fluid(
+                    maxWidth: 1920
+                    srcSetBreakpoints: [370, 600, 1065, 1200]
+                  ) {
+                    base64
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -1,7 +1,5 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-//import BackgroundImage from "gatsby-background-image"
 import css from "./Hero.module.scss"
 import Link from "../common/Link"
 import capitalize from "../common/capitalize"
@@ -28,31 +26,20 @@ export default function Hero({
   path,
   title = "Hallo Welt",
   sub = "Lorem Ipsum dolor sit amet",
+  img,
 }) {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(
-        relativePath: { eq: "luca-bravo-XJXWbfSo2f0-unsplash.jpg" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 1920, srcSetBreakpoints: [370, 640, 1065, 1200]) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  `)
+  console.log(img)
   return (
     <section className={css.hero}>
       <div className={css["background-img"]}>
-        {!data?.placeholderImage?.childImageSharp?.fluid ? (
+        {!img ? (
           <div className={css["background-img__content"]}>
             Picture not found
           </div>
         ) : (
           <Img
             style={{ position: "" }}
-            fluid={data.placeholderImage.childImageSharp.fluid}
+            fluid={img}
             className={css["background-img__content"]}
           />
         )}

@@ -40,8 +40,8 @@
   }
 
   &__text {
-    color: $clr-white;
-    background-color: rgba($clr-black, 0.75);
+    color: $clr-black;
+    background-color: rgba($clr-white, 0.75);
     backdrop-filter: blur(4px);
     padding: 3rem 2rem;
     max-width: 90rem;
@@ -51,24 +51,24 @@
 
 .breadcrumb {
   font-size: $fs-s;
-  background-color: $clr-white;
+  background-color: $clr-primary;
   padding: 1em;
   margin-left: 1.5em;
   transform: translateY(1.5em);
   width: max-content;
   z-index: 100;
-
+  color: $clr-white;
   & a {
     font-family: $ff-primary;
     font-weight: $fw-semibold-only-primary-italic;
     font-style: italic;
-    color: $clr-black;
+    color: $clr-white;
     text-decoration: none;
     transition: border 0.25s, color 0.25;
     border-bottom: 0.2rem solid transparent;
 
     &:hover {
-      border-bottom: 0.2rem solid $clr-primary--light;
+      border-bottom: 0.2rem solid $clr-white;
     }
 
     &:focus {
