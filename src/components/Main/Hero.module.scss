@@ -58,6 +58,7 @@
   width: max-content;
   z-index: 100;
   color: $clr-white;
+  outline: 0.2rem solid rgba($clr-white, 0.75);
   & a {
     font-family: $ff-primary;
     font-weight: $fw-semibold-only-primary-italic;
@@ -72,12 +73,12 @@
     }
 
     &:focus {
-      outline: $clr-primary dotted 0.2rem;
+      outline: $clr-white dotted 0.2rem;
       outline-offset: 0.1rem;
     }
 
     &:active {
-      color: $clr-primary;
+      color: $clr-black;
     }
   }
 }

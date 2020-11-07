@@ -18,7 +18,7 @@ function Layout({
   changeHeaderSize,
   updateScrollIndicator,
   changeBackToTopVisibility,
-  img,
+  context,
 }) {
   useEffect(() => {
     window.onscroll = () => {
@@ -62,7 +62,7 @@ function Layout({
       <SEO title="default title" />
       <Header />
       <main className={css.main}>
-        <Hero img={img} />
+        <Hero context={context} />
         <section className={css.content}>
           <div className={css.wrapper}>{children}</div>
         </section>

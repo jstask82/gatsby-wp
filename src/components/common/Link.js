@@ -7,11 +7,11 @@ import { Link as GatsbyLink } from "gatsby"
 const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // The expressions assume that any internal link (intended for Gatsby)
   // will start with exactly one slash, or starts with http[s]://[www.]baseurl/
-  const startsWithBaseUrl = new RegExp(
+  const startsWithApiUrl = new RegExp(
     `^https?:/{2}(w{3}.|w{0})(${process.env.API_URL})/.*`
   )
   const startsWithSlash = /^\/(?!\/)/
-  const internal = startsWithBaseUrl.test(to)
+  const internal = startsWithApiUrl.test(to)
   const relative = startsWithSlash.test(to)
 
   // Use Gatsby Link for internal and relative links, and <a> for others

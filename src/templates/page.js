@@ -5,7 +5,7 @@ import Content from "../components/Main/Content"
 export default function Page({ pageContext }) {
   const { data } = pageContext
   return (
-    <Layout img={data.featured_media.localFile.childImageSharp.fluid}>
+    <Layout context={data}>
       <Content context={data} />
     </Layout>
   )
